@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Appointment - MedTrack</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='book-appointment.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Book a New Appointment</h1>
+    <p>Select a doctor and describe your issue below:</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form id="appointmentForm" method="POST">
+      <div class="doctor-grid">
+        <div class="doctor-card" data-name="Dr. A. Sharma">
+          <h4>Dr. A. Sharma</h4>
+          <p>Cardiologist</p>
+        </div>
+        <div class="doctor-card" data-name="Dr. B. Reddy">
+          <h4>Dr. B. Reddy</h4>
+          <p>Dermatologist</p>
+        </div>
+        <div class="doctor-card" data-name="Dr. C. Mehta">
+          <h4>Dr. C. Mehta</h4>
+          <p>Neurologist</p>
+        </div>
+        <div class="doctor-card" data-name="Dr. D. Iyer">
+          <h4>Dr. D. Iyer</h4>
+          <p>General Physician</p>
+        </div>
+      </div>
+
+      <label for="selectedDoctor">Selected Doctor:</label>
+      <input type="text" id="selectedDoctor" name="selectedDoctor" readonly required>
+
+      <label for="date">Date:</label>
+      <input type="date" name="date" required>
+
+      <label for="time">Time:</label>
+      <input type="time" name="time" required>
+
+      <label for="description">Health Issue Description:</label>
+      <textarea id="description" name="description" required placeholder="Describe your issue..."></textarea>
+
+      <button type="submit" class="book-btn">Book Appointment</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='book-appointment.js') }}"></script>
+</body>
+</html>

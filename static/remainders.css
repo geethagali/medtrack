@@ -1,0 +1,120 @@
+/* Base Styling */
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.reminder-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #4e54c8;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Form Section */
+.reminder-form-section {
+  margin-bottom: 2rem;
+}
+
+#reminderForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#reminderForm input[type="text"],
+#reminderForm input[type="datetime-local"] {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Button Style */
+.reminder-btn {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.reminder-btn:hover {
+  background: linear-gradient(to right, #3b42a2, #6f77f0);
+  transform: scale(1.05);
+}
+
+/* Reminder List */
+.reminder-list-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reminder-list-section li {
+  background: #f7f9fc;
+  border-left: 5px solid #4e54c8;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.reminder-list-section li:hover {
+  transform: translateX(5px);
+}
+
+/* Back Button Container (optional) */
+.back-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MedTrack Reports</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='reports.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script defer src="{{ url_for('static', filename='reports.js') }}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="top-navbar">
+    <h2>📊 MedTrack Reports</h2>
+    <p>Review your health summaries and patient details.</p>
+  </div>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="{{ url_for('home') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="{{ url_for('medications') }}"><i class="fas fa-pills"></i> Medications</a></li>
+        <li><a href="{{ url_for('reminders') }}"><i class="fas fa-bell"></i> Reminders</a></li>
+        <li class="active"><i class="fas fa-file-medical"></i> Reports</li>
+      </ul>
+    </aside>
+
+    <section class="content">
+      <div class="reports-table-wrapper">
+        <h3>Detailed Reports</h3>
+        <table class="reports-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Report Type</th>
+              <th>Doctor</th>
+              <th>Summary</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Will be populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="reportDetails" class="report-details" style="display:none;">
+        <h3>Report Details</h3>
+        <div id="reportDetailContent"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

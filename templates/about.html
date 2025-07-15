@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - MedTrack</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}" />
+
+  <!-- Custom JS -->
+  <script defer src="{{ url_for('static', filename='about.js') }}"></script>
+</head>
+<body>
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="logo" aria-label="MedTrack Logo"><i class="fas fa-heartbeat"></i> MedTrack</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="{{ url_for('about') }}" class="active" aria-current="page"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="{{ url_for('contact') }}"><i class="fas fa-phone"></i> Contact</a></li>
+        <li><a href="{{ url_for('support') }}"><i class="fas fa-headset"></i> Support</a></li> 
+        <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+      </ul>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu"><i class="fas fa-bars"></i></div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="about-hero">
+    <h1><i class="fas fa-user-md"></i> About MedTrack</h1>
+    <p>Your Digital Health Partner - Track. Remind. Connect.</p>
+  </section>
+
+  <!-- ===== About Content ===== -->
+  <section class="about-container">
+    <div class="about-box fade-in">
+      <h2><i class="fas fa-info-circle"></i> What is MedTrack?</h2>
+      <p>
+        MedTrack is a comprehensive platform that simplifies your healthcare routine.
+        Whether it's managing prescriptions, receiving reminders, or booking appointments, everything is just a click away.
+      </p>
+    </div>
+
+    <div class="about-box fade-in">
+      <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+      <p>
+        We aim to help patients lead healthier lives by providing tools that encourage medication adherence, timely consultations, and better health decisions.
+      </p>
+    </div>
+
+    <div class="about-box fade-in">
+      <h2><i class="fas fa-eye"></i> Our Vision</h2>
+      <p>
+        A future where every patient feels confident and cared for through the power of smart, connected healthcare.
+      </p>
+    </div>
+
+    <div class="about-box fade-in">
+      <h2><i class="fas fa-hand-holding-heart"></i> Our Core Values</h2>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Trust and Transparency</li>
+        <li><i class="fas fa-check-circle"></i> Simplicity and Innovation</li>
+        <li><i class="fas fa-check-circle"></i> Privacy and Security</li>
+        <li><i class="fas fa-check-circle"></i> Accessible Healthcare for All</li>
+      </ul>
+    </div>
+
+    <div class="about-box bounce-in">
+      <h2><i class="fas fa-heart-pulse"></i> How MedTrack Helps You</h2>
+      <p>
+        🌿 <strong>No more missed doses</strong> — smart reminders ensure you never forget your medications again.  
+        <br>
+        👨‍⚕️ <strong>Find the right doctor</strong> — view availability and book instantly.  
+        <br>
+        📈 <strong>Track your progress</strong> — monitor your medications and health data in one dashboard.  
+        <br>
+        🧾 <strong>Access your prescriptions</strong> — everything safely stored and easy to find. 
+        <br> 
+        🕒 <strong>Save time</strong> — spend less time managing health and more time enjoying life.
+      </p>
+    </div>
+
+    <div class="about-box feature-card bounce-in">
+      <h2><i class="fas fa-star"></i> Our Key Features</h2>
+      <ul>
+        <li><i class="fas fa-capsules"></i> Detailed Medication Tracker</li>
+        <li><i class="fas fa-bell"></i> Automated Reminders</li>
+        <li><i class="fas fa-user-doctor"></i> Doctor Availability & Appointments</li>
+        <li><i class="fas fa-notes-medical"></i> Prescription History Viewer</li>
+        <li><i class="fas fa-chart-pie"></i> Health Progress Dashboard</li>
+        <li><i class="fas fa-cloud-upload-alt"></i> Cloud-Based Access Anywhere</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 MedTrack. Designed with ❤️ for your health.</p>
+  </footer>
+</body>
+</html>

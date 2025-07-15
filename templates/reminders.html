@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedTrack - Reminders</title>
+
+  <!-- CSS and Fonts -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='remainders.css') }}" />
+  <script defer src="{{ url_for('static', filename='remainders.js') }}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <div class="reminder-container">
+    <!-- Header -->
+    <header>
+      <h1>⏰ Medication Reminders</h1>
+      <p>Set reminders for medications prescribed by your doctor</p>
+    </header>
+
+    <!-- Reminder Form -->
+    <section class="reminder-form-section">
+      <form id="reminderForm">
+        <input type="text" id="medicationName" placeholder="Medication Name" required />
+        <input type="datetime-local" id="reminderTime" required />
+        <button type="submit" class="reminder-btn">Add Reminder</button>
+      </form>
+    </section>
+
+    <!-- Reminder List -->
+    <section class="reminder-list-section">
+      <ul id="reminderList">
+        <!-- Reminders will appear here -->
+      </ul>
+    </section>
+
+    <!-- Back Button -->
+    <div class="back-container">
+      <a href="{{ url_for('home') }}">
+        <button class="reminder-btn">🔙 Back to Dashboard</button>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

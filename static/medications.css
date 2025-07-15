@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #eef2f3, #cfd9df);
+  animation: fadeIn 1s ease;
+}
+
+.top-navbar {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: white;
+  padding: 1.5rem 2rem;
+  animation: slideDown 0.8s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.top-navbar h2 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.top-navbar p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.medications-container {
+  padding: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+#medications-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  background-color: #fff;
+}
+
+#medications-table th,
+#medications-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+}
+
+#medications-table thead {
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  color: white;
+}
+
+#medications-table tbody tr:hover {
+  background-color: #f9fbff;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn {
+  margin-top: 2rem;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

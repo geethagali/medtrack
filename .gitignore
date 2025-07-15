@@ -1,0 +1,32 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual Environment
+venv/
+
+# Environment Variables
+.env
+
+# Logs and Debug
+*.log
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# AWS config
+.aws/
+
+# Node.js (if used)
+node_modules/
+
+# Pytest
+.pytest_cache/
+
+# SQLite (optional)
+*.sqlite3

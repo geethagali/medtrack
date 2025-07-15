@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support - MedTrack</title>
+
+  <!-- Support CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='support.css') }}" />
+
+  <!-- Font Awesome & Poppins -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="support-header">
+    <nav class="navbar">
+      <div class="logo"><i class="fas fa-heartbeat"></i> MedTrack</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="{{ url_for('contact') }}"><i class="fas fa-phone"></i> Contact</a></li>
+        <li><a href="{{ url_for('support') }}" class="active" aria-current="page"><i class="fas fa-headset"></i> Support</a></li>
+        <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Support Section -->
+  <section class="support-section">
+    <div class="support-container">
+      <h1>MedTrack Support Center</h1>
+      <p>If you need help, you're in the right place. Browse topics or contact us anytime.</p>
+
+      <div class="support-topics">
+        <h3><i class="fas fa-user-md"></i> Common Questions</h3>
+        <ul>
+          <li><strong>💊 How do I add a new medication?</strong><br>Go to the Medications tab and click “Add Medication.” Fill in the details and save.</li>
+          <li><strong>🔔 How can I set reminders?</strong><br>Navigate to the Reminders section and choose your schedule and medicine.</li>
+          <li><strong>📅 How can I book an appointment?</strong><br>Click “Book New Appointment” and choose an available doctor and time slot.</li>
+        </ul>
+
+        <h3><i class="fas fa-tools"></i> Technical Support</h3>
+        <p>For bugs, login issues, or loading errors, email us at <strong>support@medtrack.com</strong> or use the <a href="{{ url_for('contact') }}">Contact Form</a>.</p>
+
+        <h3><i class="fas fa-shield-alt"></i> Privacy & Security</h3>
+        <p>MedTrack follows secure protocols to ensure your data is safe. All patient information is encrypted and protected under medical privacy laws.</p>
+
+        <h3><i class="fas fa-clock"></i> Support Hours</h3>
+        <p>We’re available Monday to Saturday, 9:00 AM – 6:00 PM IST. Expect a response within 24 hours during business days.</p>
+
+        <div class="quick-help">
+          <h3><i class="fas fa-life-ring"></i> Quick Help Links</h3>
+          <ul>
+            <li><a href="{{ url_for('contact') }}">Submit a Support Inquiry</a></li>
+            <li><a href="{{ url_for('book_appointment') }}">View Appointments</a></li>
+            <li><a href="{{ url_for('medications') }}">Access My Medications</a></li>
+            <li><a href="{{ url_for('reminders') }}">Set Medication Reminders</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 MedTrack. Your health, our priority.</p>
+  </footer>
+</body>
+</html>

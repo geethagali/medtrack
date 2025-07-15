@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedTrack Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script defer src="{{ url_for('static', filename='home.js') }}"></script>
+</head>
+<body>
+  <div class="top-navbar">
+    <h2>👋 Welcome to MedTrack</h2>
+    <p>Manage your appointments, prescriptions, and health summaries easily.</p>
+    <div class="info-highlight">
+      View your records, consult doctors, and manage reminders.<br>
+      <strong>Stay organized and healthy!</strong>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <aside class="sidebar">
+      <ul>
+        <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+        <li><a href="{{ url_for('medications') }}"><i class="fas fa-pills"></i> Medications</a></li>
+        <li><a href="{{ url_for('reminders') }}"><i class="fas fa-bell"></i> Reminders</a></li>
+        <li><a href="{{ url_for('reports') }}"><i class="fas fa-file-medical"></i> Reports</a></li>
+        <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+      </ul>
+    </aside>
+
+    <section class="content">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Book Appointment Button -->
+      <div class="book-appointment-container">
+        <a href="{{ url_for('book_appointment') }}">
+          <button class="book-btn">📅 Book New Appointment</button>
+        </a>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats">
+        <div class="card pending">{{ pending }}<br><small>Pending Appointments</small></div>
+        <div class="card completed">{{ completed }}<br><small>Completed Appointments</small></div>
+        <div class="card total">{{ total }}<br><small>Total Appointments</small></div>
+      </div>
+
+      <!-- Appointments Section -->
+      <div class="appointments-section">
+        <div class="tabs">
+          <button class="active">My Appointments</button>
+          <a href="{{ url_for('available_doctors') }}"><button>Available Doctors</button></a>
+        </div>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search doctor or status...">
+          <button class="search-btn">Search</button>
+        </div>
+
+        <div class="appointments-table" id="appointmentsTableWrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Issue</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsTable">
+              {% for appt in appointments %}
+              <tr>
+                <td>{{ appt.doctor_name }}</td>
+                <td>{{ appt.date }}</td>
+                <td>{{ appt.time }}</td>
+                <td>{{ appt.issue }}</td>
+                <td>{{ appt.status }}</td>
+              </tr>
+              {% else %}
+              <tr><td colspan="5">No appointments found.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

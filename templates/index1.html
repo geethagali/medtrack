@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedTrack Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash-messages">
+        {% for category, message in messages %}
+          <li class="flash {{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <!-- LOGIN FORM -->
+  <div class="container" id="login-container">
+    <div class="form-box glass">
+      <div class="logo">🩺 MedTrack</div>
+      <h2>Welcome Back</h2>
+      <form method="POST" action="{{ url_for('login') }}">
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <span class="toggle-link" onclick="toggleForm('signup')">Don't have an account? Register</span>
+    </div>
+  </div>
+
+  <!-- SIGNUP FORM -->
+  <div class="container hidden" id="signup-container">
+    <div class="form-box glass">
+      <div class="logo">🩺 MedTrack</div>
+      <h2>Create Account</h2>
+      <form method="POST" action="{{ url_for('signup') }}">
+        <div class="input-group">
+          <i class="fas fa-user icon"></i>
+          <input type="text" name="name" placeholder="Full Name" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <span class="toggle-link" onclick="toggleForm('login')">Already have an account? Login</span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script1.js') }}"></script>
+</body>
+</html>

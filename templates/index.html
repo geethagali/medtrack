@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedTrack</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+  <!-- JS -->
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="content-wrapper">
+    <header>
+      <nav class="navbar" aria-label="Main Navigation">
+        <div class="logo" aria-label="MedTrack Logo">
+          <i class="fas fa-heartbeat"></i> MedTrack
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="{{ url_for('home') }}" class="btn btn-primary">Home</a></li>
+          <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="{{ url_for('contact') }}"><i class="fas fa-phone"></i> Contact</a></li>
+          <li><a href="{{ url_for('support') }}"><i class="fas fa-headset"></i> Support</a></li>
+          <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle" aria-label="Menu Toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-box">
+          <h1>Your Health, Our Priority</h1>
+          <p>MedTrack helps you manage your medications and track your wellness journey effortlessly.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MedTrack. Designed with ❤️ for your health.</p>
+    </footer>
+  </div>
+</body>
+</html>

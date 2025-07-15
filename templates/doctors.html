@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Available Doctors - MedTrack</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='doctors.css') }}" />
+  <script src="{{ url_for('static', filename='doctors.js') }}" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Meet Our Doctors</h1>
+
+
+    <!-- Cardiology -->
+    <div class="department-group">
+      <h2>Cardiologists</h2>
+      <div class="cards">
+        <div class="doctor-card available">
+          <div class="img-placeholder">AR</div>
+          <h3>Dr. Anjali Rao</h3>
+          <p class="speciality">Cardiologist</p>
+          <p>Experience: 12+ years<br>Care Heart Hospital</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">VK</div>
+          <h3>Dr. Vikas Kumar</h3>
+          <p class="speciality">Interventional Cardiologist</p>
+          <p>Experience: 9+ years<br>Apollo Cardiac Unit</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+        <div class="doctor-card available">
+          <div class="img-placeholder">SM</div>
+          <h3>Dr. Shalini Mishra</h3>
+          <p class="speciality">Cardiologist</p>
+          <p>Experience: 8+ years<br>Metro Heart Institute</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">PK</div>
+          <h3>Dr. Praveen Khanna</h3>
+          <p class="speciality">Cardiac Electrophysiologist</p>
+          <p>Experience: 10+ years<br>Global CardioCare</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neurology -->
+    <div class="department-group">
+      <h2>Neurologists</h2>
+      <div class="cards">
+        <div class="doctor-card available">
+          <div class="img-placeholder">SM</div>
+          <h3>Dr. Sneha Mehta</h3>
+          <p class="speciality">Neurologist</p>
+          <p>Experience: 10+ years<br>NeuroWell Clinic</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">RM</div>
+          <h3>Dr. Ramesh M.</h3>
+          <p class="speciality">Neurosurgeon</p>
+          <p>Experience: 11+ years<br>City NeuroCare</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+        <div class="doctor-card available">
+          <div class="img-placeholder">AV</div>
+          <h3>Dr. Ankit Verma</h3>
+          <p class="speciality">Neurophysician</p>
+          <p>Experience: 7+ years<br>Brain Health Hospital</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">KS</div>
+          <h3>Dr. Kavya Singh</h3>
+          <p class="speciality">Stroke Specialist</p>
+          <p>Experience: 6+ years<br>NeuroLife Institute</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dermatology -->
+    <div class="department-group">
+      <h2>Dermatologists</h2>
+      <div class="cards">
+        <div class="doctor-card available">
+          <div class="img-placeholder">NK</div>
+          <h3>Dr. Neeraj Kapoor</h3>
+          <p class="speciality">Cosmetic Dermatologist</p>
+          <p>Experience: 6+ years<br>Skin Bliss Studio</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">RJ</div>
+          <h3>Dr. Ritu Jain</h3>
+          <p class="speciality">Dermatologist</p>
+          <p>Experience: 7+ years<br>Glow Skin Clinic</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+        <div class="doctor-card available">
+          <div class="img-placeholder">PA</div>
+          <h3>Dr. Priya Anand</h3>
+          <p class="speciality">Dermatologist</p>
+          <p>Experience: 9+ years<br>DermaWell Hospital</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">AK</div>
+          <h3>Dr. Amit Kaul</h3>
+          <p class="speciality">Trichologist</p>
+          <p>Experience: 5+ years<br>Hair & Skin Clinic</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orthopedic -->
+    <div class="department-group">
+      <h2>Orthopedic Surgeons</h2>
+      <div class="cards">
+        <div class="doctor-card available">
+          <div class="img-placeholder">SS</div>
+          <h3>Dr. Sanjay Sinha</h3>
+          <p class="speciality">Orthopedic Surgeon</p>
+          <p>Experience: 11+ years<br>Bone & Joint Hospital</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">KM</div>
+          <h3>Dr. Kavita Menon</h3>
+          <p class="speciality">Sports Injury Specialist</p>
+          <p>Experience: 6+ years<br>FitCare Orthopedics</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+        <div class="doctor-card available">
+          <div class="img-placeholder">RD</div>
+          <h3>Dr. Rohan Das</h3>
+          <p class="speciality">Joint Replacement Expert</p>
+          <p>Experience: 10+ years<br>OrthoMax Hospital</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">NS</div>
+          <h3>Dr. Nidhi Shah</h3>
+          <p class="speciality">Pediatric Orthopedic</p>
+          <p>Experience: 8+ years<br>Kids OrthoCare</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pediatrics -->
+    <div class="department-group">
+      <h2>Pediatricians</h2>
+      <div class="cards">
+        <div class="doctor-card available">
+          <div class="img-placeholder">MT</div>
+          <h3>Dr. Meera Thakur</h3>
+          <p class="speciality">Pediatrician</p>
+          <p>Experience: 15+ years<br>Children's Wellness Center</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">JK</div>
+          <h3>Dr. Jai Krishna</h3>
+          <p class="speciality">Child Specialist</p>
+          <p>Experience: 9+ years<br>Happy Kids Hospital</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+        <div class="doctor-card available">
+          <div class="img-placeholder">AA</div>
+          <h3>Dr. Aarti Agarwal</h3>
+          <p class="speciality">Neonatologist</p>
+          <p>Experience: 10+ years<br>Neonatal Care Center</p>
+          <span class="status available">AVAILABLE</span>
+        </div>
+        <div class="doctor-card not-available">
+          <div class="img-placeholder">VK</div>
+          <h3>Dr. Varun Khanna</h3>
+          <p class="speciality">General Pediatrician</p>
+          <p>Experience: 12+ years<br>Family Health Clinic</p>
+          <span class="status not-available">NOT AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Doctor Info Modal -->
+  <div id="doctorModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="doctorName">Doctor Name</h3>
+      <p id="doctorSpeciality">Speciality: </p>
+      <p id="doctorExperience">Experience: </p>
+      <p id="doctorHospital">Hospital: </p>
+      <p id="doctorStatus">Status info</p>
+      <form id="bookForm" method="POST" action="/book_doctor">
+        <input type="hidden" name="name" id="inputName">
+        <input type="hidden" name="speciality" id="inputSpeciality">
+        <input type="hidden" name="experience" id="inputExperience">
+        <input type="hidden" name="hospital" id="inputHospital">
+        <input type="hidden" name="status" value="Pending">
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='doctors.js') }}"></script>
+</body>
+</html>

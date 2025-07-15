@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - MedTrack</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}" />
+  <script defer src="{{ url_for('static', filename='contact.js') }}"></script>
+
+  <!-- Google Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ===== Navbar ===== -->
+  <header class="contact-header">
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="logo"><i class="fas fa-heartbeat"></i> MedTrack</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a class="active" href="{{ url_for('contact') }}" aria-current="page"><i class="fas fa-phone"></i> Contact</a></li>
+        <li><a href="{{ url_for('support') }}"><i class="fas fa-headset"></i> Support</a></li>
+        <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Flash Messages ===== -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="toast-container">
+        {% for category, message in messages %}
+          <div class="toast {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- ===== Contact Section ===== -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <p>Need help or have questions? Fill out the form below and we’ll get back to you soon.</p>
+
+      <form id="contactForm" method="POST" novalidate>
+        <div class="form-group">
+          <label for="name"><i class="fas fa-user"></i> Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+        </div>
+
+        <div class="form-group">
+          <label for="subject"><i class="fas fa-comment-dots"></i> Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What’s your message about?" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message"><i class="fas fa-pen"></i> Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your inquiry here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 MedTrack. All rights reserved.</p>
+  </footer>
+</body>
+</html>
