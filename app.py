@@ -228,6 +228,6 @@ def logout():
     flash("You have been logged out.", "success")
     return redirect(url_for('index'))
 
-# -------------------- RUN --------------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
