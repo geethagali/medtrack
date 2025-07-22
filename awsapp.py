@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 
 # AWS Region and Resources
-region = 'ap-south-1'
+region = 'us-east-1'
 dynamodb = boto3.resource('dynamodb', region_name=region)
 sns = boto3.client('sns', region_name=region)
 
@@ -17,7 +17,7 @@ sns = boto3.client('sns', region_name=region)
 user_table = dynamodb.Table('Users')
 appt_table = dynamodb.Table('Appointments')
 med_table = dynamodb.Table('Medications')
-contact_table = dynamodb.Table('Contacts')
+contact_table = dynamodb.Table('Contact')
 
 # SNS Topic ARN (replace with your actual ARN)
 SNS_TOPIC_ARN = os.environ.get('SNS_TOPIC_ARN', 'arn:aws:sns:ap-south-1:your-account-id:MedTrackReminders')
