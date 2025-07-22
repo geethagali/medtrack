@@ -205,7 +205,7 @@ def contact():
         cursor = db.cursor()
         try:
             cursor.execute("""
-                INSERT INTO contacts (name, email, subject, message)
+                INSERT INTO contact (name, email, subject, message)
                 VALUES (%s, %s, %s, %s)
             """, (name, email, subject, message))
             db.commit()
