@@ -3,6 +3,7 @@ import boto3
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from boto3.dynamodb.conditions import Key
+from uuid import uuid4
 import os
 
 app = Flask(__name__)
@@ -19,8 +20,8 @@ appt_table = dynamodb.Table('Appointments')
 med_table = dynamodb.Table('Medications')
 contact_table = dynamodb.Table('Contact')
 
-# SNS Topic ARN (replace with your actual ARN)
-SNS_TOPIC_ARN = os.environ.get('SNS_TOPIC_ARN', 'arn:aws:sns:ap-south-1:your-account-id:MedTrackReminders')
+# SNS Topic ARN - hardcoded
+SNS_TOPIC_ARN = 'arn:aws:sns:us-east-1:841162703005:MedTrackReminders'
 
 @app.route('/')
 def index():
@@ -30,7 +31,6 @@ def index():
 def login():
     email = request.form['email']
     password = request.form['password']
-
     try:
         response = user_table.get_item(Key={'email': email})
         user = response.get('Item')
@@ -50,7 +50,6 @@ def signup():
     email = request.form['email']
     password = request.form['password']
     hashed_password = generate_password_hash(password)
-
     try:
         user_table.put_item(Item={
             'email': email,
@@ -71,7 +70,6 @@ def home():
     user_name = session.get('user_name')
     if not user_name:
         return redirect(url_for('index'))
-
     try:
         response = appt_table.query(
             IndexName='user_name-index',
@@ -101,9 +99,11 @@ def book_appointment():
         date = request.form['date']
         time = request.form['time']
         issue = request.form['description']
+        appointment_id = str(uuid4())
 
         try:
             appt_table.put_item(Item={
+                'appointment_id': appointment_id,
                 'user_name': user_name,
                 'doctor_name': doctor,
                 'issue': issue,
@@ -140,9 +140,11 @@ def book_from_doctor():
     date = data.get('date')
     time = data.get('time')
     user_name = session['user_name']
+    appointment_id = str(uuid4())
 
     try:
         appt_table.put_item(Item={
+            'appointment_id': appointment_id,
             'user_name': user_name,
             'doctor_name': doctor,
             'issue': issue,
@@ -161,6 +163,29 @@ def book_from_doctor():
     except Exception as e:
         return jsonify({'message': f'Booking failed: {str(e)}'}), 500
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        subject = request.form['subject']
+        message = request.form['message']
+
+        try:
+            contact_table.put_item(Item={
+                'email': email,
+                'name': name,
+                'subject': subject,
+                'message': message,
+                'timestamp': datetime.utcnow().isoformat()
+            })
+            flash("Your message has been sent successfully!", "success")
+        except Exception as e:
+            flash(f"Error sending message: {str(e)}", "error")
+        return redirect(url_for('contact'))
+
+    return render_template('contact.html')
+
 @app.route('/reminders')
 def reminders():
     return render_template('reminders.html')
@@ -172,29 +197,6 @@ def reports():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        subject = request.form['subject']
-        message = request.form['message']
-
-        try:
-            contact_table.put_item(Item={
-                'name': name,
-                'email': email,
-                'subject': subject,
-                'message': message,
-                'timestamp': datetime.utcnow().isoformat()
-            })
-            flash("Your message has been sent successfully!", "success")
-        except Exception as e:
-            flash(f"Error sending message: {str(e)}", "error")
-        return redirect(url_for('contact'))
-
-    return render_template('contact.html')
 
 @app.route('/support')
 def support():
