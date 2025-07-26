@@ -20,7 +20,7 @@ appt_table = dynamodb.Table('Appointments')
 med_table = dynamodb.Table('Medications')
 contact_table = dynamodb.Table('Contact')
 
-# SNS Topic ARN - hardcoded
+# SNS Topic ARN
 SNS_TOPIC_ARN = 'arn:aws:sns:us-east-1:841162703005:MedTrackReminders'
 
 @app.route('/')
@@ -189,6 +189,18 @@ def contact():
 @app.route('/reminders')
 def reminders():
     return render_template('reminders.html')
+
+@app.route('/medications')
+def medications():
+    # Fetch medications if needed (optional logic)
+    try:
+        response = med_table.scan()
+        medications = response.get('Items', [])
+    except Exception as e:
+        flash(f"Error fetching medications: {str(e)}", "error")
+        medications = []
+
+    return render_template('medications.html', medications=medications)
 
 @app.route('/reports')
 def reports():

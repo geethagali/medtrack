@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prescribed Medications | MedTrack</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='medications.css') }}" />
-  <script defer src="{{ url_for('static', filename='medications.js') }}"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescribed Medications | MedTrack</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='medications.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="top-navbar">
-    <h2>💊 Prescribed Medications</h2>
-    <p>Review all medicines your doctor has prescribed based on current diagnoses.</p>
-  </div>
+  <!-- Header -->
+  <div class="top-navbar">
+    <h2>💊 Prescribed Medications</h2>
+    <p>Review all medicines your doctor has prescribed based on current diagnoses.</p>
+  </div>
 
-  <!-- Medications Content -->
-  <div class="medications-container">
-    <table id="medications-table">
-      <thead>
-        <tr>
-          <th>Disease / Condition</th>
-          <th>Medicine</th>
-          <th>Dosage</th>
-          <th>Frequency</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Instructions</th>
-        </tr>
-      </thead>
-      <tbody id="medications-body">
-        <!-- Populated dynamically by medications.js -->
-      </tbody>
-    </table>
+  <!-- Medications Content -->
+  <div class="medications-container">
+    <table id="medications-table">
+      <thead>
+        <tr>
+          <th>Disease / Condition</th>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody id="medications-body">
+        {% for med in medications %}
+        <tr>
+          <td>{{ med.condition }}</td>
+          <td>{{ med.name }}</td>
+          <td>{{ med.dosage }}</td>
+          <td>{{ med.frequency }}</td>
+          <td>{{ med.start_date }}</td>
+          <td>{{ med.end_date }}</td>
+          <td>{{ med.instructions }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
-    <a href="{{ url_for('home') }}">
-      <button class="back-btn">🔙 Back to Dashboard</button>
-    </a>
-  </div>
+    <a href="{{ url_for('home') }}">
+      <button class="back-btn">🔙 Back to Dashboard</button>
+    </a>
+  </div>
 
 </body>
 </html>
